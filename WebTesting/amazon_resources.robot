@@ -1,5 +1,6 @@
 *** Setting ***
 Library  SeleniumLibrary
+Library    XML
 
 *** Variables ***
 ${BROWSER}               chrome
@@ -42,6 +43,24 @@ Clicar no botão de pesquisa
 Verificar o resultado da pesquisa se está listando o produto "${PRODUTO}"
     Wait Until Element Is Visible   locator=//span[@class='a-size-base-plus a-color-base a-text-normal'][contains(.,'${PRODUTO}')]
 
+# Exercio Prosposto 
+
+Adicionar o produto "${PRODUTO}" no carrinho
+    Click Element    locator=//img[@alt="${PRODUTO}"]
+    Wait Until Element Is Visible    locator=//input[@name='submit.add-to-cart']
+    Click Element    locator=//input[@name='submit.add-to-cart']
+
+Verificar se o produto "${PRODUTO}" foi adicionado com sucesso
+    Click Element    locator=//a[contains(.,'Carrinho')]
+    Wait Until Element Is Visible   locator=//input[contains(@name,'proceedToRetailCheckout')]
+    Element Should Be Visible    locator= //span[@class='a-truncate-cut'][contains(.,"${PRODUTO}")]
+
+Remover o produto "Console Xbox Series S" do carrinho
+    Click Element   locator=//input[contains(@name,'submit.delete.2f9cef66-9508-4e91-9dba-d92db30a81f6')]
+    
+Verificar se o carrinho fica vazio
+    Element Should Be Visible    locator=//div[@class='a-padding-medium'][contains(.,'foi removido de Carrinho de compras.')]
+# Exercio Prosposto
 
 # GHERKIN STEPS
 

@@ -1,127 +1,321 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20231222 12:01:37.818" rpa="false" schemaversion="4">
-<suite id="s1" name="Amazon Testes Gherkin Bdd" source="C:\GITHUB\robot_framework\WebTesting\amazon_testes_gherkin_bdd.robot">
-<test id="s1-t1" name="Caso de Teste 02 - Pesquisa de um Produto" line="24">
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20231226 09:05:01.202" rpa="false" schemaversion="4">
+<suite id="s1" name="Amazon Testes" source="C:\GITHUB\robot_framework\WebTesting\amazon_testes.robot">
+<test id="s1-t1" name="aso de Teste 03 - Adicionar Produto no Carrinho" line="34">
 <kw name="Abrir o navegador" library="amazon_resources" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231222 12:01:38.506" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20231222 12:01:38.504" endtime="20231222 12:01:41.328"/>
+<msg timestamp="20231226 09:05:01.921" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20231226 09:05:01.920" endtime="20231226 09:05:04.277"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231222 12:01:41.328" endtime="20231222 12:01:41.452"/>
+<status status="PASS" starttime="20231226 09:05:04.277" endtime="20231226 09:05:04.408"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:38.503" endtime="20231222 12:01:41.453"/>
+<status status="PASS" starttime="20231226 09:05:01.919" endtime="20231226 09:05:04.408"/>
 </kw>
-<kw name="Dado que estou na home page da Amazon.com.br" library="amazon_resources">
 <kw name="Acessar a home page do site Amazon.com.br" library="amazon_resources">
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231222 12:01:41.454" level="INFO">Opening url 'https://www.amazon.com.br'</msg>
-<status status="PASS" starttime="20231222 12:01:41.454" endtime="20231222 12:01:44.721"/>
+<msg timestamp="20231226 09:05:04.408" level="INFO">Opening url 'https://www.amazon.com.br'</msg>
+<status status="PASS" starttime="20231226 09:05:04.408" endtime="20231226 09:05:05.189"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>locator=${MENU_ELETRONICOS}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 12:01:44.722" endtime="20231222 12:01:45.673"/>
+<msg timestamp="20231226 09:05:07.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
+<msg timestamp="20231226 09:05:07.198" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
+<status status="FAIL" starttime="20231226 09:05:05.190" endtime="20231226 09:05:07.201"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:41.454" endtime="20231222 12:01:45.673"/>
+<status status="FAIL" starttime="20231226 09:05:04.408" endtime="20231226 09:05:07.201"/>
 </kw>
-<kw name="Verificar se aparece a frase &quot;Amazon.com.br | Tudo pra você, de A a Z.&quot;" library="amazon_resources" sourcename="Verificar se aparece a frase &quot;${FRASE}&quot;">
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<arg>text=${FRASE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" starttime="20231222 12:01:45.674" endtime="20231222 12:01:45.806"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>locator=${MENU_ELETRONICOS}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20231222 12:01:45.806" endtime="20231222 12:01:46.070"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:45.673" endtime="20231222 12:01:46.070"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:41.453" endtime="20231222 12:01:46.070"/>
-</kw>
-<kw name="Quando pesquisar pelo produto &quot;Xbox Series S&quot;" library="amazon_resources">
 <kw name="Digitar o nome de produto &quot;Xbox Series S&quot; no campo de pesquisa" library="amazon_resources" sourcename="Digitar o nome de produto &quot;${PRODUTO}&quot; no campo de pesquisa">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>locator=twotabsearchtextbox</arg>
-<arg>text=${PRODUTO}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231222 12:01:46.074" level="INFO">Typing text 'Xbox Series S' into text field 'twotabsearchtextbox'.</msg>
-<status status="PASS" starttime="20231222 12:01:46.072" endtime="20231222 12:01:46.706"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:46.071" endtime="20231222 12:01:46.706"/>
+<status status="NOT RUN" starttime="20231226 09:05:07.201" endtime="20231226 09:05:07.201"/>
 </kw>
 <kw name="Clicar no botão de pesquisa" library="amazon_resources">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>locator=nav-search-submit-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231222 12:01:46.708" level="INFO">Clicking element 'nav-search-submit-button'.</msg>
-<status status="PASS" starttime="20231222 12:01:46.707" endtime="20231222 12:01:49.390"/>
+<status status="NOT RUN" starttime="20231226 09:05:07.201" endtime="20231226 09:05:07.207"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:46.706" endtime="20231222 12:01:49.390"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:46.071" endtime="20231222 12:01:49.390"/>
-</kw>
-<kw name="Então o título da página deve ficar &quot;Amazon.com.br : Xbox Series S&quot;" library="amazon_resources">
-<kw name="Verificar se o título da página fica &quot;Amazon.com.br : Xbox Series S&quot;" library="amazon_resources" sourcename="Verificar se o título da página fica &quot;${TITULO}&quot;">
-<kw name="Title Should Be" library="SeleniumLibrary">
-<arg>title=${TITULO}</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20231222 12:01:49.513" level="INFO">Page title is 'Amazon.com.br : Xbox Series S'.</msg>
-<status status="PASS" starttime="20231222 12:01:49.393" endtime="20231222 12:01:49.513"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:49.393" endtime="20231222 12:01:49.514"/>
-</kw>
-<status status="PASS" starttime="20231222 12:01:49.391" endtime="20231222 12:01:49.514"/>
-</kw>
-<kw name="E um produto da linha &quot;Xbox Series S&quot; deve ser mostrado na página" library="amazon_resources">
 <kw name="Verificar o resultado da pesquisa se está listando o produto &quot;Console Xbox Series S&quot;" library="amazon_resources" sourcename="Verificar o resultado da pesquisa se está listando o produto &quot;${PRODUTO}&quot;">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>locator=//span[@class='a-size-base-plus a-color-base a-text-normal'][contains(.,'${PRODUTO}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231222 12:01:49.516" endtime="20231222 12:01:49.733"/>
+<status status="NOT RUN" starttime="20231226 09:05:07.207" endtime="20231226 09:05:07.207"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:49.515" endtime="20231222 12:01:49.733"/>
+<kw name="Adicionar o produto &quot;Console Xbox Series S&quot; no carrinho" library="amazon_resources" sourcename="Adicionar o produto &quot;${PRODUTO}&quot; no carrinho">
+<status status="NOT RUN" starttime="20231226 09:05:07.207" endtime="20231226 09:05:07.208"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:49.514" endtime="20231222 12:01:49.733"/>
+<kw name="Verificar se o produto &quot;Console Xbox Series S&quot; foi adicionado com sucesso" library="amazon_resources" sourcename="Verificar se o produto &quot;${PRODUTO}&quot; foi adicionado com sucesso">
+<status status="NOT RUN" starttime="20231226 09:05:07.208" endtime="20231226 09:05:07.208"/>
 </kw>
 <kw name="Fechar o navegador" library="amazon_resources" type="TEARDOWN">
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20231222 12:01:50.346" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20231222 12:01:49.740" endtime="20231222 12:01:50.346"/>
+<msg timestamp="20231226 09:05:07.217" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
+<msg timestamp="20231226 09:05:07.224" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
+<status status="FAIL" starttime="20231226 09:05:07.209" endtime="20231226 09:05:07.250"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231222 12:01:50.346" endtime="20231222 12:01:52.645"/>
+<status status="PASS" starttime="20231226 09:05:07.250" endtime="20231226 09:05:09.363"/>
 </kw>
-<status status="PASS" starttime="20231222 12:01:49.739" endtime="20231222 12:01:52.645"/>
+<status status="FAIL" starttime="20231226 09:05:07.209" endtime="20231226 09:05:09.364">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</status>
 </kw>
-<doc>Esse teste verifica a busca de produto</doc>
-<tag>busca_produtos</tag>
-<tag>lista_busca</tag>
-<status status="PASS" starttime="20231222 12:01:38.498" endtime="20231222 12:01:52.646"/>
+<doc>Esse teste verifica a adição de um produto no carrinho de compras</doc>
+<tag>adicionar_carrinho</tag>
+<status status="FAIL" starttime="20231226 09:05:01.908" endtime="20231226 09:05:09.364">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+
+
+Also teardown failed:
+NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</status>
 </test>
 <doc>Essa suite testa o site da Amazon</doc>
-<status status="PASS" starttime="20231222 12:01:37.822" endtime="20231222 12:01:52.648"/>
+<status status="FAIL" starttime="20231226 09:05:01.202" endtime="20231226 09:05:09.381"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">busca_produtos</stat>
-<stat pass="1" fail="0" skip="0">lista_busca</stat>
+<stat pass="0" fail="1" skip="0">adicionar_carrinho</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Amazon Testes Gherkin Bdd">Amazon Testes Gherkin Bdd</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Amazon Testes">Amazon Testes</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20231226 09:05:07.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
+<msg timestamp="20231226 09:05:07.217" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=120.0.6099.130)
+Stacktrace:
+	GetHandleVerifier [0x00486EE3+174339]
+	(No symbol) [0x003B0A51]
+	(No symbol) [0x000C6FF6]
+	(No symbol) [0x000AEFE7]
+	(No symbol) [0x0011B53B]
+	(No symbol) [0x00129E7B]
+	(No symbol) [0x00116DA6]
+	(No symbol) [0x000F1034]
+	(No symbol) [0x000F1F8D]
+	GetHandleVerifier [0x00524B1C+820540]
+	sqlite3_dbdata_init [0x005E53EE+653550]
+	sqlite3_dbdata_init [0x005E4E09+652041]
+	sqlite3_dbdata_init [0x005D97CC+605388]
+	sqlite3_dbdata_init [0x005E5D9B+656027]
+	(No symbol) [0x003BFE6C]
+	(No symbol) [0x003B83B8]
+	(No symbol) [0x003B84DD]
+	(No symbol) [0x003A5818]
+	BaseThreadInitThunk [0x76D67BA9+25]
+	RtlInitializeExceptionChain [0x779DBD2B+107]
+	RtlClearBits [0x779DBCAF+191]
+	(No symbol) [0x00000000]
+</msg>
 </errors>
 </robot>
