@@ -51,9 +51,14 @@ Adicionar o produto "${PRODUTO}" no carrinho
     Click Element    locator=//input[@name='submit.add-to-cart']
 
 Verificar se o produto "${PRODUTO}" foi adicionado com sucesso
-    Click Element    locator=//a[contains(.,'Carrinho')]
-    Wait Until Element Is Visible   locator=//input[contains(@name,'proceedToRetailCheckout')]
-    Element Should Be Visible    locator= //span[@class='a-truncate-cut'][contains(.,"${PRODUTO}")]
+   # Click Element    locator=//a[contains(.,'Carrinho')]
+   # Wait Until Element Is Visible   locator=//input[contains(@name,'proceedToRetailCheckout')]
+   # Element Should Be Visible    locator= (//span[@class='a-truncate-cut'])[1]
+    
+    Click Element    locator=//span[@aria-hidden='true'][contains(.,'Carrinho')]
+    Wait Until Element Is Visible    locator=//h1[contains(.,'Carrinho de compras')]
+    Element Should Be Visible    locator=//span[@class='a-truncate-cut'][contains(.,'${PRODUTO}')]
+
 
 Remover o produto "Console Xbox Series S" do carrinho
     Click Element   locator=//input[contains(@name,'submit.delete.2f9cef66-9508-4e91-9dba-d92db30a81f6')]
@@ -88,4 +93,22 @@ Então o título da página deve ficar "Amazon.com.br : Xbox Series S"
     Verificar se o título da página fica "Amazon.com.br : Xbox Series S"
 
 E um produto da linha "Xbox Series S" deve ser mostrado na página
-    Verificar o resultado da pesquisa se está listando o produto "Console Xbox Series S"
+    Verificar o resultado da pesquisa se está listando o produto "Console Xbox Series S" 
+
+# GHERKIN STEPS
+
+# GHERKIN STEPS Pratica
+Quando adicionar o produto "${PRODUTO}" no carrinho
+    Adicionar o produto "${PRODUTO}" no carrinho    
+
+Então o produto "${PRODUTO}" deve ser mostrado no carrinho
+    Verificar se o produto "${PRODUTO}" foi adicionado com sucesso
+
+E existe o produto "${PRODUTO}" no carrinho
+    Verificar se o produto "${PRODUTO}" foi adicionado com sucesso
+
+Quando remover o produto "Console Xbox Series S" do carrinho
+    Remover o produto "Console Xbox Series S" do carrinho
+Então o carrinho deve ficar vazio
+    Verificar se o carrinho fica vazio
+# GHERKIN STEPS Pratica
