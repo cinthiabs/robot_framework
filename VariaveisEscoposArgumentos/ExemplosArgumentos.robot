@@ -10,13 +10,13 @@ Caso de teste de exemplo 01
 
 *** Keywords ***
 Uma keyword qualquer 01
-    Uma subkeyword com argumentos   Bruno Silva   bruno_silva@teste.com.br
+    Uma subkeyword com argumentos   Bruno Silva   bruno_silva@teste.com.br     #quando a keyword é chamada, é necessario passar os 2 argumentos (ex função)
     Uma subkeyword com argumentos   ${PESSOA.nome}   ${PESSOA.email}
     ${MENSAGEM_ALERTA}   Uma subkeyword com retorno   ${PESSOA.nome}   ${PESSOA.idade}
     Log     ${MENSAGEM_ALERTA}
 
 Uma subkeyword com argumentos
-    [Arguments]     ${NOME_USUARIO}   ${EMAIL_USUARIO}
+    [Arguments]     ${NOME_USUARIO}   ${EMAIL_USUARIO}  #quando a keyword é chamada, é necessario passar os 2 argumentos (ex função)
     Log             Nome Usuário: ${NOME_USUARIO}
     Log             Email: ${EMAIL_USUARIO}
 
