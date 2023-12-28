@@ -28,8 +28,8 @@ Teste de Sair do FOR
 
 *** Keywords ***
 Usando Repeat keyword
-    Log To Console  ${\n}
-    Repeat Keyword    8x    Log To Console    Minha repetição da keyword!!!
+    Log To Console  ${\n}  # pula linha
+    Repeat Keyword    8x    Log To Console    Minha repetição da keyword!!!   #executa 8 vezes a keyword 
 
 Usando FOR IN RANGE
     Log To Console  ${\n}
@@ -40,7 +40,7 @@ Usando FOR IN RANGE
 
 Usando FOR IN
     Log To Console    ${\n}
-    FOR  ${FRUTA}   IN  @{MINHA_LISTA_DE_FRUTAS}
+    FOR  ${FRUTA}   IN  @{MINHA_LISTA_DE_FRUTAS}         #usado para percorrer uma lista 
         Log To Console    Minha fruta é: ${FRUTA}!
         No Operation
     END
