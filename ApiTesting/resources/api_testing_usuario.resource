@@ -21,7 +21,12 @@ Cadastrar o usuário criado na ServerRest
     Criar Sessão na ServerRest
     ${Resposta}  POST On Session  alias=ServerRest   url=/usuarios  json=${body}  expected_status=${status_code_desejado}  #expected status valida o retorno da minha api
     Log    ${Resposta.json()}
-    Set Test Variable    ${RESPOSTA}   ${Resposta.json()}
+    
+    IF     ${Resposta.status_code} == 201
+        Set Test Variable    ${ID_USUARIO}  ${Resposta.json()["_id"]}  #var global
+    END
+    
+    Set Test Variable    ${RESPOSTA}   ${Resposta.json()}  #var global
     
 Criar Sessão na ServerRest 
     ${headers}  Create Dictionary  accept=application/json   Content-Type=application/json
@@ -36,3 +41,14 @@ Vou repetir o cadastro do usuário
     Cadastrar o usuário criado na ServerRest   email=${EMAIL_TESTE}  status_code_desejado=400
 Verificar se a API não permitiu o cadastro repetido
     Dictionary Should Contain Item  ${RESPOSTA}  message  Este email já está sendo usado
+Consultar os dados do novo usuário
+   ${resposta_consulta}   GET On Session  alias=ServerRest  url=/usuarios/${ID_USUARIO}  expected_status=200
+   Set Test Variable    ${REST_CONSULTA}     ${resposta_consulta.json()}   #var global
+Conferir os dados retornados
+    Log   ${REST_CONSULTA}
+    Dictionary Should Contain Item    ${REST_CONSULTA}     nome                Fulano da Silva
+    Dictionary Should Contain Item    ${REST_CONSULTA}     email               ${EMAIL_TESTE}
+    Dictionary Should Contain Item    ${REST_CONSULTA}     password            1234
+    Dictionary Should Contain Item    ${REST_CONSULTA}     administrador       true
+    Dictionary Should Contain Item    ${REST_CONSULTA}     _id                 ${ID_USUARIO}
+    
