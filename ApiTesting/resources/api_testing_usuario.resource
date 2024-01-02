@@ -43,6 +43,13 @@ Verificar se a API não permitiu o cadastro repetido
     Dictionary Should Contain Item  ${RESPOSTA}  message  Este email já está sendo usado
 Consultar os dados do novo usuário
    ${resposta_consulta}   GET On Session  alias=ServerRest  url=/usuarios/${ID_USUARIO}  expected_status=200
+   Log To Console      ${resposta_consulta.status_code}
+   Log To Console      ${resposta_consulta.reason}
+   Log To Console      ${resposta_consulta.headers}
+   Log To Console      ${resposta_consulta.elapsed}
+   Log To Console      ${resposta_consulta.text}
+   Log To Console      ${resposta_consulta.json()}
+
    Set Test Variable    ${REST_CONSULTA}     ${resposta_consulta.json()}   #var global
 Conferir os dados retornados
     Log   ${REST_CONSULTA}
