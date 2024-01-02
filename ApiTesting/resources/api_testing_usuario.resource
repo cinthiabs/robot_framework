@@ -58,4 +58,15 @@ Conferir os dados retornados
     Dictionary Should Contain Item    ${REST_CONSULTA}     password            1234
     Dictionary Should Contain Item    ${REST_CONSULTA}     administrador       true
     Dictionary Should Contain Item    ${REST_CONSULTA}     _id                 ${ID_USUARIO}
+
+Realizar Login com o usuário
+    [Arguments]  ${email}  ${status_code_desejado}
+    ${body}  Create Dictionary  
+    ...  email=${EMAIL_TESTE}  
+    ...  password=1234  
     
+    Criar Sessão na ServerRest
+    ${Resposta_Login}  POST On Session  alias=ServerRest   url=/login  json=${body}  expected_status=${status_code_desejado}  #expected status valida o retorno da minha api
+    Set Test Variable   ${Login}   ${Resposta_Login.json()}
+Conferir se o Login ocorreu com sucesso
+    Dictionary Should Contain Item   ${Login}  message   Login realizado com sucesso
