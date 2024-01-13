@@ -1,200 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240102 18:54:55.345" rpa="false" schemaversion="4">
-<suite id="s1" name="Api Testing Usuarios" source="c:\GITHUB\robot_framework\ApiTesting\tests\api_testing_usuarios.robot">
-<test id="s1-t1" name="Cenário 04: Logar com o novo usuário criado" line="26">
-<kw name="Criar um usuário novo" library="api_testing_usuario">
-<kw name="Generate Random String" library="String">
-<var>${palavra_aleatoria}</var>
-<arg>length=4</arg>
-<arg>chars=[LETTERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20240102 18:54:55.818" level="INFO">${palavra_aleatoria} = WkLo</msg>
-<status status="PASS" starttime="20240102 18:54:55.817" endtime="20240102 18:54:55.825"/>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240113 10:35:04.392" rpa="false" schemaversion="4">
+<suite id="s1" name="Bdd" source="c:\GITHUB\robot_framework\extracurso\bdd.robot">
+<test id="s1-t1" name="Cenário 1: Executar video no site do youtube" line="33">
+<kw name="Dado que eu acesso o site do youtube">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240113 10:35:05.409" level="INFO">Opening browser 'chrome' to base url 'https://www.youtube.com/'.</msg>
+<status status="PASS" starttime="20240113 10:35:05.402" endtime="20240113 10:35:20.015"/>
 </kw>
-<kw name="Convert To Lower Case" library="String">
-<var>${palavra_aleatoria}</var>
-<arg>${palavra_aleatoria}</arg>
-<doc>Converts string to lower case.</doc>
-<msg timestamp="20240102 18:54:55.827" level="INFO">${palavra_aleatoria} = wklo</msg>
-<status status="PASS" starttime="20240102 18:54:55.826" endtime="20240102 18:54:55.828"/>
+<status status="PASS" starttime="20240113 10:35:05.402" endtime="20240113 10:35:20.017"/>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${EMAIL_TESTE}</arg>
-<arg>${palavra_aleatoria}@email.com</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20240102 18:54:55.833" level="INFO">${EMAIL_TESTE} = wklo@email.com</msg>
-<status status="PASS" starttime="20240102 18:54:55.828" endtime="20240102 18:54:55.833"/>
+<kw name="Quando digito o nome da musica">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>locator=${inputPesquisa}</arg>
+<arg>text=${NomeDaMusica}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240113 10:35:20.033" level="INFO">Typing text 'Ariana Grande - positions' into text field '//input[contains(@autocapitalize,'none')]'.</msg>
+<status status="PASS" starttime="20240113 10:35:20.031" endtime="20240113 10:35:21.732"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${EMAIL_TESTE}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240102 18:54:55.835" level="INFO">wklo@email.com</msg>
-<status status="PASS" starttime="20240102 18:54:55.834" endtime="20240102 18:54:55.835"/>
+<status status="PASS" starttime="20240113 10:35:20.031" endtime="20240113 10:35:21.732"/>
 </kw>
-<status status="PASS" starttime="20240102 18:54:55.816" endtime="20240102 18:54:55.836"/>
+<kw name="E clico no botão buscar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${buttonPesquisa}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240113 10:35:21.740" level="INFO">Clicking element '//button[@class='style-scope ytd-searchbox'][contains(.,'Pesquisar')]'.</msg>
+<status status="PASS" starttime="20240113 10:35:21.737" endtime="20240113 10:35:22.301"/>
 </kw>
-<kw name="Cadastrar o usuário criado na ServerRest" library="api_testing_usuario">
-<arg>email=${EMAIL_TESTE}</arg>
-<arg>status_code_desejado=201</arg>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${body}</var>
-<arg>nome=Fulano da Silva</arg>
-<arg>email=${EMAIL_TESTE}</arg>
-<arg>password=1234</arg>
-<arg>administrador=true</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240102 18:54:55.841" level="INFO">${body} = {'nome': 'Fulano da Silva', 'email': 'wklo@email.com', 'password': '1234', 'administrador': 'true'}</msg>
-<status status="PASS" starttime="20240102 18:54:55.838" endtime="20240102 18:54:55.841"/>
+<status status="PASS" starttime="20240113 10:35:21.737" endtime="20240113 10:35:22.302"/>
 </kw>
-<kw name="Criar Sessão na ServerRest" library="api_testing_usuario">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${headers}</var>
-<arg>accept=application/json</arg>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240102 18:54:55.845" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20240102 18:54:55.843" endtime="20240102 18:54:55.846"/>
+<kw name="E clico na primeira opção da Lista">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${video}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240113 10:35:22.304" endtime="20240113 10:35:24.782"/>
 </kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>alias=ServerRest</arg>
-<arg>url=https://serverest.dev</arg>
-<arg>headers=${headers}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20240102 18:54:55.848" level="INFO">Creating Session using : alias=ServerRest, url=https://serverest.dev, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20240102 18:54:55.846" endtime="20240102 18:54:55.848"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>locator=${video}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240113 10:35:24.785" level="INFO">Clicking element '//yt-formatted-string[@class='style-scope ytd-video-renderer'][contains(.,'Ariana Grande - positions')]'.</msg>
+<status status="PASS" starttime="20240113 10:35:24.783" endtime="20240113 10:35:26.934"/>
 </kw>
-<status status="PASS" starttime="20240102 18:54:55.842" endtime="20240102 18:54:55.849"/>
+<status status="PASS" starttime="20240113 10:35:22.303" endtime="20240113 10:35:26.935"/>
 </kw>
-<kw name="POST On Session" library="RequestsLibrary">
-<var>${Resposta}</var>
-<arg>alias=ServerRest</arg>
-<arg>url=/usuarios</arg>
-<arg>json=${body}</arg>
-<arg>expected_status=${status_code_desejado}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20240102 18:54:56.329" level="INFO">POST Request : url=https://serverest.dev/usuarios 
- path_url=/usuarios 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '99'} 
- body=b'{"nome": "Fulano da Silva", "email": "wklo@email.com", "password": "1234", "administrador": "true"}' 
- </msg>
-<msg timestamp="20240102 18:54:56.330" level="INFO">POST Response : url=https://serverest.dev/usuarios 
- status=201, reason=Created 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'ede7e7b1b4442612f855f594bb5d45a6', 'Date': 'Tue, 02 Jan 2024 21:54:58 GMT', 'Server': 'Google Frontend', 'Content-Length': '82'} 
- body={
-    "message": "Cadastro realizado com sucesso",
-    "_id": "28G7R0uOjCnux8UH"
-} 
- </msg>
-<msg timestamp="20240102 18:54:56.330" level="INFO">C:\Users\LENOVO-EQP364\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg timestamp="20240102 18:54:56.332" level="INFO">${Resposta} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20240102 18:54:55.849" endtime="20240102 18:54:56.332"/>
+<kw name="Então o video é executado">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${videoExe}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240113 10:35:26.939" endtime="20240113 10:35:29.589"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${Resposta.json()}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20240102 18:54:56.335" level="INFO">{'message': 'Cadastro realizado com sucesso', '_id': '28G7R0uOjCnux8UH'}</msg>
-<status status="PASS" starttime="20240102 18:54:56.333" endtime="20240102 18:54:56.335"/>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>locator=${videoExe}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20240113 10:35:29.820" level="INFO">Element '//yt-formatted-string[@class='style-scope ytd-watch-metadata'][contains(.,'Ariana Grande - positions')]' is displayed.</msg>
+<status status="PASS" starttime="20240113 10:35:29.590" endtime="20240113 10:35:29.822"/>
 </kw>
-<if>
-<branch type="IF" condition="${Resposta.status_code} == 201">
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${ID_USUARIO}</arg>
-<arg>${Resposta.json()["_id"]}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20240102 18:54:56.344" level="INFO">${ID_USUARIO} = 28G7R0uOjCnux8UH</msg>
-<status status="PASS" starttime="20240102 18:54:56.338" endtime="20240102 18:54:56.344"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240113 10:35:30.823" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240113 10:35:29.822" endtime="20240113 10:35:30.824"/>
 </kw>
-<status status="PASS" starttime="20240102 18:54:56.336" endtime="20240102 18:54:56.345"/>
-</branch>
-<status status="PASS" starttime="20240102 18:54:56.336" endtime="20240102 18:54:56.346"/>
-</if>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${RESPOSTA}</arg>
-<arg>${Resposta.json()}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20240102 18:54:56.348" level="INFO">${RESPOSTA} = {'message': 'Cadastro realizado com sucesso', '_id': '28G7R0uOjCnux8UH'}</msg>
-<status status="PASS" starttime="20240102 18:54:56.346" endtime="20240102 18:54:56.349"/>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240113 10:35:30.825" endtime="20240113 10:35:33.459"/>
 </kw>
-<status status="PASS" starttime="20240102 18:54:55.837" endtime="20240102 18:54:56.349"/>
+<status status="PASS" starttime="20240113 10:35:26.938" endtime="20240113 10:35:33.459"/>
 </kw>
-<kw name="Realizar Login com o usuário" library="api_testing_usuario">
-<arg>email=${EMAIL_TESTE}</arg>
-<arg>status_code_desejado=200</arg>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${body}</var>
-<arg>email=${EMAIL_TESTE}</arg>
-<arg>password=1234</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240102 18:54:56.354" level="INFO">${body} = {'email': 'wklo@email.com', 'password': '1234'}</msg>
-<status status="PASS" starttime="20240102 18:54:56.352" endtime="20240102 18:54:56.354"/>
-</kw>
-<kw name="Criar Sessão na ServerRest" library="api_testing_usuario">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${headers}</var>
-<arg>accept=application/json</arg>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240102 18:54:56.357" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20240102 18:54:56.356" endtime="20240102 18:54:56.357"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>alias=ServerRest</arg>
-<arg>url=https://serverest.dev</arg>
-<arg>headers=${headers}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20240102 18:54:56.359" level="INFO">Creating Session using : alias=ServerRest, url=https://serverest.dev, headers={'accept': 'application/json', 'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20240102 18:54:56.358" endtime="20240102 18:54:56.361"/>
-</kw>
-<status status="PASS" starttime="20240102 18:54:56.355" endtime="20240102 18:54:56.362"/>
-</kw>
-<kw name="POST On Session" library="RequestsLibrary">
-<var>${Resposta_Login}</var>
-<arg>alias=ServerRest</arg>
-<arg>url=/login</arg>
-<arg>json=${body}</arg>
-<arg>expected_status=${status_code_desejado}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20240102 18:54:56.816" level="INFO">POST Request : url=https://serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '47'} 
- body=b'{"email": "wklo@email.com", "password": "1234"}' 
- </msg>
-<msg timestamp="20240102 18:54:56.817" level="INFO">POST Response : url=https://serverest.dev/login 
- status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '471db0026b7b7cfce21ee7a04106bf1a', 'Date': 'Tue, 02 Jan 2024 21:54:58 GMT', 'Server': 'Google Frontend', 'Content-Length': '265'} 
- body={
-    "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndrbG9AZW1haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNzA0MjMyNDk4LCJleHAiOjE3MDQyMzMwOTh9.ysSG8tlQocZ0xEbdQSuvbFp7mSKK8_Hkw9JvIGMHph8"
-} 
- </msg>
-<msg timestamp="20240102 18:54:56.818" level="INFO">C:\Users\LENOVO-EQP364\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
-  warnings.warn(</msg>
-<msg timestamp="20240102 18:54:56.819" level="INFO">${Resposta_Login} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20240102 18:54:56.363" endtime="20240102 18:54:56.821"/>
-</kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<arg>${Login}</arg>
-<arg>${Resposta_Login.json()}</arg>
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<msg timestamp="20240102 18:54:56.828" level="INFO">${Login} = {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndrbG9AZW1haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNzA0MjMyNDk4LCJleHAiOjE3MDQ...</msg>
-<status status="PASS" starttime="20240102 18:54:56.822" endtime="20240102 18:54:56.829"/>
-</kw>
-<status status="PASS" starttime="20240102 18:54:56.350" endtime="20240102 18:54:56.830"/>
-</kw>
-<kw name="Conferir se o Login ocorreu com sucesso" library="api_testing_usuario">
-<kw name="Dictionary Should Contain Item" library="Collections">
-<arg>${Login}</arg>
-<arg>message</arg>
-<arg>Login realizado com sucesso</arg>
-<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
-<status status="PASS" starttime="20240102 18:54:56.832" endtime="20240102 18:54:56.833"/>
-</kw>
-<status status="PASS" starttime="20240102 18:54:56.831" endtime="20240102 18:54:56.833"/>
-</kw>
-<status status="PASS" starttime="20240102 18:54:55.814" endtime="20240102 18:54:56.835"/>
+<status status="PASS" starttime="20240113 10:35:05.402" endtime="20240113 10:35:33.462"/>
 </test>
-<status status="PASS" starttime="20240102 18:54:55.363" endtime="20240102 18:54:56.838"/>
+<status status="PASS" starttime="20240113 10:35:04.413" endtime="20240113 10:35:33.465"/>
 </suite>
 <statistics>
 <total>
@@ -203,7 +80,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Api Testing Usuarios">Api Testing Usuarios</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Bdd">Bdd</stat>
 </suite>
 </statistics>
 <errors>
